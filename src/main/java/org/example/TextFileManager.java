@@ -54,6 +54,11 @@ public class TextFileManager {
     }
 
     public String getAbsolutePath() {
-        return this.file.getAbsolutePath();
+        try {
+            return this.file.getAbsolutePath();
+        }catch (SecurityException e){
+            e.printStackTrace();
+            return "Absolute Path can't be exposed due to security reasons";
+        }
     }
 }
